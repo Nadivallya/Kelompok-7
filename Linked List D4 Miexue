@@ -56,3 +56,34 @@ def main():
 
         print("\n1. Masukkan menu yang anda ingin pesan")
         print("2. Tampilkan pesanan yang telah di pilih")
+        print("2. Tampilkan pesanan yang telah di pilih")
+        print("3. Jumlah Harga yang dibayarkan")
+        print("4. Keluar")
+
+        pilih = input("masukkan angka sesuai pilihan anda:")
+        if pilih == "1":
+            nama_menu = input("Masukkan menu yang anda ingin pesan:").lower()
+            harga_menu = menu_dict.get(nama_menu)
+            if harga_menu is not None:
+                pesanan.tambah_menu(nama_menu, harga_menu)
+            else:
+                print("Menu tidak valid. Silahkan pilih menu yang sesuai.")
+
+        elif pilih == "2":
+            pesanan.tampilkan_pesanan()
+
+        elif pilih == "3":
+            total = pesanan.total_harga()
+            print(f"Total harga yang harus dibayarkan: {total}")
+            print("Terima Kasih telah memesan di D4 MIE. See You Again:)")
+            break  # Exit the loop
+
+        elif pilih == "4":
+            print("Keluar")
+            break  # Exit the loop
+
+        else:
+            print("Pilihan tidak valid. Silahkan pilih opsi yang sesuai.")
+
+if __name__ == "__main__":
+    main()
